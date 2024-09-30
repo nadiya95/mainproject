@@ -1,0 +1,56 @@
+body {
+    background-color: #1b1b1b; /* Main background color */
+    color: #ffffff; /* Text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.search-container {
+    background-color: #333; /* Container background */
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto; /* Center the container */
+    max-width: 600px; /* Average width for the container */
+    margin-top: 40px; /* Increase space from the header */
+}
+
+.search-container h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.search-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.search-container input,
+.search-container select {
+    width: calc(100% - 20px); /* Make it slightly less than 100% */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding in the element's total width */
+}
+
+.search-container button {
+    background-color: #c06169; /* Accent color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block; /* Center the button */
+    margin: 0 auto; /* Center the button horizontally */
+}
+
+.search-container button:hover {
+    background-color: #a05257; /* Button hover color */
+}
+
+.search-container button i {
+    margin: 0; /* Ensure there's no extra margin around the icon */
+}
+

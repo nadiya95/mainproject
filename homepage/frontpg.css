@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b1b;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #c06169;
+}
+
+.logo img {
+    width: 100px; /* Adjust the width to a reasonable size */
+    height: auto; /* Maintains the aspect ratio */
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: rgb(100, 68, 49);
+    text-decoration: none;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+}
+
+.menu-popup {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu-popup ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-popup ul li {
+    margin-bottom: 10px;
+}
+
+.menu-popup ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.homepage-banner {
+    background-image: url('../images/pexels-cottonbro-7268855.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.banner-content h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.find-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+.activity-log {
+    flex: 1;
+    margin-right: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.activity-log h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    background-color: #c06169;
+    border: none;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.requests {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #1b1b1b;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.profile-container img {
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.profiles-section {
+    flex: 2;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.profiles-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.profile-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.profile-container span {
+    font-size: 18px;
+}
+footer {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    
+    bottom: 0;
+    width: 100%;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+

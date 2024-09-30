@@ -1,0 +1,41 @@
+/* Footer Styles */
+footer {
+    background-color: #333;  /* Dark background */
+    color: #fdf3e3;  /* Light text color to match the theme */
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-socials {
+    margin-top: 10px;
+}
+
+.footer-socials a {
+    color: #fdf3e3;  /* Light text color */
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #c06169;  /* Accent color for hover */
+}
+
+footer p {
+    margin: 5px 0;
+}

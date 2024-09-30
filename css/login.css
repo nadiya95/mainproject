@@ -1,0 +1,128 @@
+body {
+    background-color: #ffccd5;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #2c2c2c;
+    border: 1px solid #ff5c8d;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-logo img {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 85%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #ff5c8d;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    font-size: 15px;
+    animation: rainbow-border 2s linear infinite;
+}
+
+.login-form input[type="text"]::placeholder,
+.login-form input[type="password"]::placeholder {
+    color: #bbb;
+}
+
+/* Rainbow border effect */
+@keyframes rainbow-border {
+    0% {
+        border-color: #ff5c8d;
+    }
+    20% {
+        border-color: #ffcc5c;
+    }
+    40% {
+        border-color: #a1ff5c;
+    }
+    60% {
+        border-color: #5cffc1;
+    }
+    80% {
+        border-color: #5c8dff;
+    }
+    100% {
+        border-color: #cc5cff;
+    }
+}
+
+.login-form button {
+    width: 85%;
+    padding: 14px;
+    background-color: #ff3366;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+.login-form button:hover {
+    background-color: #e6004c;
+}
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #ff5c8d;
+}
+
+.or-divider span {
+    background-color: #2c2c2c;
+    padding: 0 10px;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #ff5c8d;
+}
+
+.login-options a {
+    display: block;
+    margin: 12px 0;
+    color: #ff6699;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.login-options a:hover {
+    color: #ff3366;
+}
+
+.sign-up-link {
+    margin-top: 25px;
+    font-size: 15px;
+    color: #bbb;
+}
+
+.sign-up-link a {
+    color: #ff6699;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sign-up-link a:hover {
+    color: #ff3366;
+}

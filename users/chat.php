@@ -150,7 +150,6 @@ $sender = $_SESSION['username'];
         <button type="submit">Send</button>
     </form>
 </div>
-
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
     import { getDatabase, ref, set, push, onChildAdded, remove } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
@@ -177,58 +176,58 @@ $sender = $_SESSION['username'];
     const receiver = "<?php echo addslashes($receiver['username']); ?>";
 
     // Send message
-    messageForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+messageForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-        const message = messageInput.value.trim();
-        if (message) {
-            const timestamp = new Date().toISOString();
-            const chatRefSender = ref(database, 'chats/' + sender + '_' + receiver);
-            const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender);
+    const message = messageInput.value.trim();
+    if (message) {
+        const timestamp = new Date().toISOString();
+        const chatRefSender = ref(database, 'chats/' + sender + '_' + receiver);
+        const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender); // Added this reference for receiver
 
-            // Message data to store
-            const messageData = {
-                sender: sender,
-                receiver: receiver,
-                message: message,
-                timestamp: timestamp
-            };
+        // Message data to store
+        const messageData = {
+            sender: sender,
+            receiver: receiver,
+            message: message,
+            timestamp: timestamp
+        };
 
-            // Push to both sender and receiver chat references
-            push(chatRefSender, messageData)
-                .then(() => push(chatRefReceiver, messageData))
-                .then(() => {
-                    console.log('Message sent to both sender and receiver:', message);
-                    messageInput.value = ''; // Clear input after sending
-                })
-                .catch((error) => console.error('Error sending message:', error));
+        // Push to both sender and receiver chat references
+        push(chatRefSender, messageData)
+            .then(() => push(chatRefReceiver, messageData)) // Store in receiver's reference
+            .then(() => {
+                console.log('Message sent to both sender and receiver:', message);
+                messageInput.value = ''; // Clear input after sending
+            })
+            .catch((error) => console.error('Error sending message:', error));
+    }
+});
+    // Load messages from both sender's and receiver's references
+function loadMessages() {
+    const chatRefSender = ref(database, 'chats/' + sender + '_' + receiver);
+    const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender); // Added reference for receiver
+
+    // Use a Set to track message keys and prevent duplicates
+    const displayedMessages = new Set();
+
+    // Listen to messages from sender's reference
+    onChildAdded(chatRefSender, (snapshot) => {
+        if (!displayedMessages.has(snapshot.key)) {
+            displayMessage(snapshot);
+            displayedMessages.add(snapshot.key);
         }
     });
 
-    // Load messages from both sender's and receiver's references
-    function loadMessages() {
-        const chatRefSender = ref(database, 'chats/' + sender + '_' + receiver);
-        const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender);
+    // Listen to messages from receiver's reference
+    onChildAdded(chatRefReceiver, (snapshot) => {
+        if (!displayedMessages.has(snapshot.key)) {
+            displayMessage(snapshot);
+            displayedMessages.add(snapshot.key);
+        }
+    });
+}
 
-        // Use a Set to track message keys and prevent duplicates
-        const displayedMessages = new Set();
-
-        // Listen to messages from sender's reference
-        onChildAdded(chatRefSender, (snapshot) => {
-            if (!displayedMessages.has(snapshot.key)) {
-                displayMessage(snapshot);
-                displayedMessages.add(snapshot.key);
-            }
-        });
-
-        // Listen to messages from receiver's reference
-        onChildAdded(chatRefReceiver, (snapshot) => {
-            if (!displayedMessages.has(snapshot.key)) {
-                displayMessage(snapshot);
-                displayedMessages.add(snapshot.key);
-            }
-        });
-    }
 
     // Display message in the chat window
     function displayMessage(snapshot) {
@@ -265,11 +264,11 @@ $sender = $_SESSION['username'];
     function deleteMessage(messageKey) {
         if (confirm('Are you sure you want to delete this message?')) {
             const chatRefSender = ref(database, 'chats/' + sender + '_' + receiver + '/' + messageKey);
-            const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender + '/' + messageKey);
+            const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender + '/' + messageKey); // Added this reference for receiver
 
             // Remove message from both sender and receiver chat
             remove(chatRefSender)
-                .then(() => remove(chatRefReceiver))
+                .then(() => remove(chatRefReceiver)) // Also remove from receiver's reference
                 .then(() => {
                     console.log('Message deleted');
                     const messageDiv = document.querySelector(`.delete-icon[data-id="${messageKey}"]`).closest('.message');
@@ -280,7 +279,7 @@ $sender = $_SESSION['username'];
     }
 
     // Load messages on page load
-    loadMessages();
+    loadMessages(); // Ensure this is called only once
 </script>
 </body>
 </html>

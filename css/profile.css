@@ -1,33 +1,26 @@
+/* Profile Container */
 .profile-container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 800px;  /* Maximum width for the container */
+    margin: 20px auto; /* Center the container */
     padding: 20px;
     background-color: #333; /* Container background */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 192, 255, 0.5); /* Neon accent shadow */
+    border: 2px solid #c06169; /* Neon accent border */
 }
 
+/* Profile Header */
 .profile-header {
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 20px; /* Space below header */
 }
 
 .profile-pic img {
-    width: 100px; /* Adjust size */
-    height: 100px; /* Adjust size */
-    border-radius: 50%;
+    width: 100px; /* Adjust size for square */
+    height: 100px; /* Adjust size for square */
+    border-radius: 10px; /* Optional: rounded corners */
     margin-right: 20px;
-}
-
-.send-interest {
-    background-color: #c06169; /* Accent color */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
 }
 
 .tabs {
@@ -36,6 +29,61 @@
     margin-bottom: 20px;
 }
 
+
+
+/* Heart Shape Button */
+.send-interest {
+    background-color: transparent; /* Transparent background */
+    color: #c06169; /* Accent color for the heart */
+    border: none; /* No border */
+    font-size: 24px; /* Size of heart */
+    cursor: pointer; /* Pointer cursor */
+    position: relative; /* Positioning for pseudo-element */
+    transition: transform 0.3s; /* Animation for hover effect */
+}
+
+/* Heart Button Hover Effect */
+.send-interest:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Font Awesome Heart Icon */
+.send-interest i {
+    margin-right: 8px; /* Space between icon and text */
+}
+/* Tooltip Styles */
+/* Tooltip Styles */
+ /* Tooltip Styles */
+/* Tooltip Styles */
+.tooltip {
+    visibility: hidden; /* Hide by default */
+    width: auto; /* Auto width to fit text */
+    max-width: 80px; /* Maximum width for a smaller size */
+    background-color: #c06169; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center; /* Center text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 3px 6px; /* Thinner padding */
+    position: absolute; /* Positioning */
+    z-index: 1; /* Ensure it is above other elements */
+    left: 110%; /* Position to the right of the button */
+    top: 50%; /* Center vertically relative to the button */
+    transform: translateY(-50%); /* Center the tooltip vertically */
+    opacity: 0; /* Start with invisible */
+    transition: opacity 0.2s; /* Fade in effect */
+    font-size: 12px; /* Smaller font size */
+}
+
+/* Show the tooltip on hover */
+.send-interest:hover .tooltip {
+    visibility: visible; /* Show tooltip */
+    opacity: 1; /* Fade in */
+}
+
+
+
+
+/* Tabs */
 .tab-button {
     background-color: transparent;
     color: #fff; /* Text color */
@@ -43,15 +91,19 @@
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    display: flex;
+    align-items: center; /* Center icons vertically */
 }
 
-.tab-button:hover, .tab-button.active {
-    background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+.tab-button i {
+    margin-right: 5px; /* Space between icon and text */
+}
+.tab-button:hover,
+.tab-button.active {
+    color: #c06169; /* Change color on hover */
+    border-bottom: 2px solid #c06169; /* Modern underline effect */
 }
 
-.tab-content {
-    display: none; /* Hide all by default */
-}
 
 .tab {
     display: none; /* Initially hide all tabs */
@@ -60,3 +112,4 @@
 .tab.active {
     display: block; /* Show the active tab */
 }
+

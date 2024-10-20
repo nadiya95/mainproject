@@ -21,22 +21,25 @@
             </select>
 
             <label for="age_range">Age Range:</label>
-            <input type="text" name="age_range" id="age_range" placeholder="e.g., 20-30" required>
+            <input type="text" name="age_range" id="age_range" placeholder="e.g., 20-30">
 
             <label for="state">State:</label>
-            <input type="text" name="state" id="state" placeholder="Enter State" required>
+            <input type="text" name="state" id="state" placeholder="Enter State">
 
             <label for="district">District:</label>
-            <input type="text" name="district" id="district" placeholder="Enter District" required>
+            <input type="text" name="district" id="district" placeholder="Enter District">
 
             <label for="religion">Religion:</label>
-            <select name="religion" id="religion" required>
+            <select name="religion" id="religion">
                 <option value="">Select Religion</option>
                 <option value="hinduism">Hindu</option>
                 <option value="islam">Muslim</option>
                 <option value="christianity">Christian</option>
                 <option value="other">Other</option>
             </select>
+            <label for="hashtags">Hashtags:</label>
+            <input type="text" name="hashtags" id="hashtags" placeholder="#hashtag1 #hashtag2" 
+            pattern="(#\w+\s*)+" title="Hashtags should start with # and be separated by spaces, e.g., #hashtag1 #hashtag2">
 
             <button type="submit" name="search">
             <i class="fas fa-search"></i>

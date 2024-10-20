@@ -1,170 +1,81 @@
 body {
+    background-color: #1b1b1b; /* Main background color */
+    color: #ffffff; /* Text color */
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1b1b1b;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #c06169;
-}
-
-.logo img {
-    width: 100px; /* Adjust the width to a reasonable size */
-    height: auto; /* Maintains the aspect ratio */
-}
-
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.menu-icon {
-    display: block;
-    cursor: pointer;
-}
-
-.menu-popup {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.menu-popup ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-popup ul li {
-    margin-bottom: 10px;
-}
-
-.menu-popup ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-
-
-.matches-container {
-    display: flex;
     padding: 20px;
 }
 
-.notifications-section {
-    flex: 3;
-    padding: 10px;
-}
-
-.tabs {
+.container {
     display: flex;
-    border-bottom: 2px solid #c06169;
-    margin-bottom: 10px;
-}
-
-.tab-button {
-    background-color: #fff;
-    border: none;
-    border-bottom: 2px solid transparent;
-    color: #333;
-    cursor: pointer;
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-}
-
-.tab-button.active {
-    border-bottom: 2px solid #c06169;
-    font-weight: bold;
-}
-
-.tab-content {
-    display: block;
-}
-
-.profile-container {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #fff;
-}
-
-.profile-container img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-.profile-container .actions {
-    margin-top: 10px;
-}
-
-.accept, .decline {
-    background-color: #c06169;
-    border: none;
-    color: #fff;
-    padding: 5px 10px;
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-.decline {
-    background-color: #e74c3c;
+    justify-content: space-between;
 }
 
 .matched-section {
-    flex: 1;
+    width: 30%;
+    background-color: rgba(51, 51, 51, 0.9); /* Slightly transparent dark background */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(192, 97, 105, 0.8); /* Neon glow effect */
+}
+
+.matched-section h2 {
+    margin-bottom: 10px;
+}
+
+.matches-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.matches-list li {
+    margin-bottom: 10px;
+    background-color: #2b2b2b; /* Darker background for match items */
     padding: 10px;
-    background-color: #fff;
-    border-left: 2px solid #c06169;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(192, 97, 105, 0.8); /* Neon glow around match item */
 }
 
-.matched-profiles {
-    display: flex;
-    flex-wrap: wrap;
+.tabs {
+    width: 65%; /* Remaining width for the tabs */
+    background-color: rgba(51, 51, 51, 0.9); /* Slightly transparent dark background */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(192, 97, 105, 0.8); /* Neon glow effect */
 }
 
-.matched-profile {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    background-color: #f4c2ac;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.tab {
+    display: none; /* Hide all tabs by default */
 }
 
-.matched-profile img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+.tab-links {
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3b3b3b; /* Background for tab links */
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(192, 97, 105, 0.8);
+}
+
+.tab-links.active { background-color: #c06169; /* Highlight active tab */ }
+
+.tab.active { display: block; /* Show active tab */ }
+
+.profile-container { display: flex; align-items: center; }
+
+.profile-pic { margin-right: 10px; }
+
+.profile-pic img { width: 50px; /* Fixed size for profile images / height: 50px; border-radius: 50%; / Round images */ }
+
+.profile-details { flex-grow: 1; /* Allow details to take available space */ }
+
+button { background-color: #c06169; /* Button color / border: none; padding: 5px 10px; margin: 5px; border-radius: 5px; cursor: pointer; color: #ffffff; / Text color */ }
+
+button
+{ background-color: #b0535b; /* Darker button color on hover */ }
+.button.rejected {
+    background-color: #dc3545; /* Red background for rejected button */
+    color: #fff; /* White text */
+    cursor: not-allowed; /* Show not-allowed cursor */
 }

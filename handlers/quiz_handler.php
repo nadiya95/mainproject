@@ -69,7 +69,7 @@ if(isset($_POST['register'])){
     // Execute personality insert
     if (mysqli_query($conn, $sql1)) {
         echo "<script>alert('Registration successful!');</script>";
-     //   session_unset();
+      //session_unset();
       //  session_destroy();
         header("Location: ../users/login.html");
         exit(); 

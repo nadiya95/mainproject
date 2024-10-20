@@ -1,0 +1,111 @@
+/* Updated chat container with fallback variable */
+.chat-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: var(--input-bg-color, #f4f4f4);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat box styles */
+.chat-box {
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+/* Message styles */
+.message {
+    margin: 5px 0;
+    padding: 10px 15px; /* Added horizontal padding for better spacing */
+    border-radius: 20px; /* Rounder corners for a modern look */
+    word-wrap: break-word;
+    position: relative; /* For positioning pseudo-elements */
+    max-width: 80%; /* Prevent messages from being too wide */
+}
+
+/* Styles for sent messages */
+.message.sent {
+    background-color: #c06169; /* Sender background color */
+    color: white;
+    text-align: right; /* Align text to the right */
+    margin-left: auto; /* Push sent messages to the right */
+}
+
+/* Styles for received messages */
+.message.received {
+    background-color: #e9e9e9; /* Receiver background color */
+    color: black;
+    text-align: left; /* Align text to the left */
+    margin-right: auto; /* Push received messages to the left */
+}
+
+/* Optional: Add a small triangle for a speech bubble effect */
+.message.sent::after {
+    content: '';
+    position: absolute;
+    right: -10px; /* Positioning for the triangle */
+    top: 10px; /* Aligns with the message */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #c06169; /* Triangle color matches the message */
+}
+
+.message.received::after {
+    content: '';
+    position: absolute;
+    left: -10px; /* Positioning for the triangle */
+    top: 10px; /* Aligns with the message */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #e9e9e9 transparent transparent; /* Triangle color matches the message */
+}
+
+/* Message form styles */
+.message-form {
+    display: flex;
+    gap: 10px;
+}
+
+/* Input styles */
+.message-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* Button styles */
+.message-form button {
+    padding: 10px 20px;
+    background-color: #c06169;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.message-form button:hover {
+    background-color: #b04c56;
+}
+
+/* Scrollbar styles */
+.chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: #c06169;
+    border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}

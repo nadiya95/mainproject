@@ -1,16 +1,29 @@
+/* General Body and Content */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b; /* Main background color */
+    color: white;
+    min-height: 100vh; /* Ensure body takes full height */
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1; /* Content grows to fill the available space */
+    padding: 20px;
+}
+
 /* Footer Styles */
 footer {
     background-color: #333;  /* Dark background */
     color: #fdf3e3;  /* Light text color to match the theme */
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     text-align: center;
     font-size: 14px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    margin-top: auto; /* Pushes footer to the bottom when content is short */
 }
 
 .footer-content {

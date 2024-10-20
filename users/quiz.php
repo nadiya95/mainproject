@@ -14,17 +14,17 @@
                             <legend>Extraversion vs. Introversion</legend>
                             <div class="question">
                                 <p>1. Do you enjoy being the center of attention at social events?</p>
-                                <label><input type="radio" name="extraversionIntroversion1" value="E"> Yes</label><br>
+                                <label><input type="radio" name="extraversionIntroversion1" value="E" checked> Yes</label><br>
                                 <label><input type="radio" name="extraversionIntroversion1" value="I"> No</label>
                             </div>
                             <div class="question">
                                 <p>2. Do you prefer to work in a team rather than independently?</p>
-                                <label><input type="radio" name="extraversionIntroversion2" value="E"> Yes</label><br>
+                                <label><input type="radio" name="extraversionIntroversion2" value="E" checked> Yes</label><br>
                                 <label><input type="radio" name="extraversionIntroversion2" value="I"> No</label>
                             </div>
                             <div class="question">
                                 <p>3. Do you feel drained after spending time in large groups?</p>
-                                <label><input type="radio" name="extraversionIntroversion3" value="E"> Yes</label><br>
+                                <label><input type="radio" name="extraversionIntroversion3" value="E" checked> Yes</label><br>
                                 <label><input type="radio" name="extraversionIntroversion3" value="I"> No</label>
                             </div>
                         </fieldset>
@@ -34,17 +34,17 @@
                             <legend>Sensing vs. Intuition</legend>
                             <div class="question">
                                 <p>1. Do you focus more on the details rather than the overall concept?</p>
-                                <label><input type="radio" name="sensingIntuition1" value="S"> Yes</label><br>
+                                <label><input type="radio" name="sensingIntuition1" value="S" checked> Yes</label><br>
                                 <label><input type="radio" name="sensingIntuition1" value="N"> No</label>
                             </div>
                             <div class="question">
                                 <p>2. Are you more interested in how things work rather than why they work?</p>
-                                <label><input type="radio" name="sensingIntuition2" value="S"> Yes</label><br>
+                                <label><input type="radio" name="sensingIntuition2" value="S" checked> Yes</label><br>
                                 <label><input type="radio" name="sensingIntuition2" value="N"> No</label>
                             </div>
                             <div class="question">
                                 <p>3. Do you prefer practical applications over theoretical ideas?</p>
-                                <label><input type="radio" name="sensingIntuition3" value="S"> Yes</label><br>
+                                <label><input type="radio" name="sensingIntuition3" value="S" checked> Yes</label><br>
                                 <label><input type="radio" name="sensingIntuition3" value="N"> No</label>
                             </div>
                         </fieldset>
@@ -54,17 +54,17 @@
                             <legend>Thinking vs. Feeling</legend>
                             <div class="question">
                                 <p>1. Do you make decisions based more on logic than on personal values?</p>
-                                <label><input type="radio" name="thinkingFeeling1" value="T"> Yes</label><br>
+                                <label><input type="radio" name="thinkingFeeling1" value="T" checked> Yes</label><br>
                                 <label><input type="radio" name="thinkingFeeling1" value="F"> No</label>
                             </div>
                             <div class="question">
                                 <p>2. Is it important for you to maintain harmony and avoid conflicts in relationships?</p>
-                                <label><input type="radio" name="thinkingFeeling2" value="T"> Yes</label><br>
+                                <label><input type="radio" name="thinkingFeeling2" value="T" checked> Yes</label><br>
                                 <label><input type="radio" name="thinkingFeeling2" value="F"> No</label>
                             </div>
                             <div class="question">
                                 <p>3. Do you value fairness and objectivity over empathy in decision-making?</p>
-                                <label><input type="radio" name="thinkingFeeling3" value="T"> Yes</label><br>
+                                <label><input type="radio" name="thinkingFeeling3" value="T" checked> Yes</label><br>
                                 <label><input type="radio" name="thinkingFeeling3" value="F"> No</label>
                             </div>
                         </fieldset>
@@ -74,17 +74,17 @@
                             <legend>Judging vs. Perceiving</legend>
                             <div class="question">
                                 <p>1. Do you prefer having a set plan and sticking to it rather than improvising?</p>
-                                <label><input type="radio" name="judgingPerceiving1" value="J"> Yes</label><br>
+                                <label><input type="radio" name="judgingPerceiving1" value="J" checked> Yes</label><br>
                                 <label><input type="radio" name="judgingPerceiving1" value="P"> No</label>
                             </div>
                             <div class="question">
                                 <p>2. Are you more comfortable when tasks are completed before a deadline?</p>
-                                <label><input type="radio" name="judgingPerceiving2" value="J"> Yes</label><br>
+                                <label><input type="radio" name="judgingPerceiving2" value="J" checked> Yes</label><br>
                                 <label><input type="radio" name="judgingPerceiving2" value="P"> No</label>
                             </div>
                             <div class="question">
                                 <p>3. Do you like to keep your options open and adapt to new information?</p>
-                                <label><input type="radio" name="judgingPerceiving3" value="J"> Yes</label><br>
+                                <label><input type="radio" name="judgingPerceiving3" value="J" checked> Yes</label><br>
                                 <label><input type="radio" name="judgingPerceiving3" value="P"> No</label>
                             </div>
                         </fieldset>

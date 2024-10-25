@@ -28,8 +28,7 @@ $sender = $_SESSION['username'];
     <link rel="stylesheet" href="../css/chat.css">
     
     <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -70,6 +69,7 @@ $sender = $_SESSION['username'];
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-direction: column; /* Stack items vertically */
         }
 
         .message.sent {
@@ -88,18 +88,27 @@ $sender = $_SESSION['username'];
         .message .message-content {
             flex-grow: 1;
             padding: 10px;
+            display: flex; /* Use flex to arrange items horizontally */
+            align-items: center; /* Center items vertically */
+            flex-direction: column; /* Stack elements vertically */
         }
 
         .timestamp {
             font-size: 0.8em;
-            color: gray;
-            margin-left: 10px;
+            color: black;
+            margin-bottom: 5px; /* Add space below the timestamp */
         }
 
         .delete-icon {
-            color: gray;
+            color: red; /* Change to red for sent messages */
             cursor: pointer;
-            margin-left: 10px;
+            font-size: 1.2em; /* Adjust size to make it more noticeable */
+            transition: color 0.3s; /* Smooth color change on hover */
+            margin-left: 10px; /* Add margin for spacing */
+        }
+
+        .delete-icon:hover {
+            color: #a05259; /* Change color on hover for better visibility */
         }
 
         .message-form {
@@ -176,58 +185,49 @@ $sender = $_SESSION['username'];
     const receiver = "<?php echo addslashes($receiver['username']); ?>";
 
     // Send message
-messageForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    messageForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    const message = messageInput.value.trim();
-    if (message) {
-        const timestamp = new Date().toISOString();
-        const chatRefSender = ref(database, 'chats/' + sender + '_' + receiver);
-        const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender); // Added this reference for receiver
+        const message = messageInput.value.trim();
+        if (message) {
+            const timestamp = new Date().toISOString();
+            const chatRefSender = ref(database, 'chats/' + sender + '_' + receiver);
+            const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender); // Added this reference for receiver
 
-        // Message data to store
-        const messageData = {
-            sender: sender,
-            receiver: receiver,
-            message: message,
-            timestamp: timestamp
-        };
+            // Message data to store
+            const messageData = {
+                sender: sender,
+                receiver: receiver,
+                message: message,
+                timestamp: timestamp
+            };
 
-        // Push to both sender and receiver chat references
-        push(chatRefSender, messageData)
-            .then(() => push(chatRefReceiver, messageData)) // Store in receiver's reference
-            .then(() => {
-                console.log('Message sent to both sender and receiver:', message);
-                messageInput.value = ''; // Clear input after sending
-            })
-            .catch((error) => console.error('Error sending message:', error));
-    }
-});
+            // Push to both sender and receiver chat references
+            push(chatRefSender, messageData)
+                .then(() => push(chatRefReceiver, messageData)) // Store in receiver's reference
+                .then(() => {
+                    console.log('Message sent to both sender and receiver:', message);
+                    messageInput.value = ''; // Clear input after sending
+                })
+                .catch((error) => console.error('Error sending message:', error));
+        }
+    });
+
     // Load messages from both sender's and receiver's references
-function loadMessages() {
-    const chatRefSender = ref(database, 'chats/' + sender + '_' + receiver);
-    const chatRefReceiver = ref(database, 'chats/' + receiver + '_' + sender); // Added reference for receiver
+    function loadMessages() {
+        const chatRef = ref(database, 'chats/' + sender + '_' + receiver); // Only use one reference
 
-    // Use a Set to track message keys and prevent duplicates
-    const displayedMessages = new Set();
+        // Use a Set to track message keys and prevent duplicates
+        const displayedMessages = new Set();
 
-    // Listen to messages from sender's reference
-    onChildAdded(chatRefSender, (snapshot) => {
-        if (!displayedMessages.has(snapshot.key)) {
-            displayMessage(snapshot);
-            displayedMessages.add(snapshot.key);
-        }
-    });
-
-    // Listen to messages from receiver's reference
-    onChildAdded(chatRefReceiver, (snapshot) => {
-        if (!displayedMessages.has(snapshot.key)) {
-            displayMessage(snapshot);
-            displayedMessages.add(snapshot.key);
-        }
-    });
-}
-
+        // Listen to messages from the sender's reference
+        onChildAdded(chatRef, (snapshot) => {
+            if (!displayedMessages.has(snapshot.key)) {
+                displayMessage(snapshot);
+                displayedMessages.add(snapshot.key);
+            }
+        });
+    }
 
     // Display message in the chat window
     function displayMessage(snapshot) {
@@ -235,22 +235,27 @@ function loadMessages() {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
 
+        const timestamp = new Date(messageData.timestamp).toLocaleString(); // Format timestamp
+
         if (messageData.sender === sender) {
             messageDiv.classList.add('sent');
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <span class="timestamp">${timestamp}</span>
+                    <i class="fas fa-trash delete-icon" data-id="${snapshot.key}"></i>
+                    <p><strong>${messageData.sender}:</strong> ${messageData.message}</p>
+                </div>
+            `;
         } else {
             messageDiv.classList.add('received');
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <span class="timestamp">${timestamp}</span>
+                    <p><strong>${messageData.sender}:</strong> ${messageData.message}</p>
+                    <i class="fas fa-trash delete-icon" data-id="${snapshot.key}"></i>
+                </div>
+            `;
         }
-
-        const timestamp = new Date(messageData.timestamp).toLocaleString();
-
-        // Create message content with delete icon
-        messageDiv.innerHTML = `
-            <div class="message-content">
-                <p><strong>${messageData.sender}:</strong> ${messageData.message}</p>
-                <span class="timestamp">${timestamp}</span>
-            </div>
-            <i class="fas fa-trash delete-icon" data-id="${snapshot.key}"></i>
-        `;
 
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom

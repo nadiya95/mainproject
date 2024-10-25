@@ -5,17 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Matrimonial Platform</title>
     <link rel="stylesheet" href="../css/login.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('../users/uploads/images/bg.jpg') no-repeat center center fixed; /* Change the path to your image */
+            background-size: cover; /* Make sure the image covers the entire background */
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 1; /* Ensure overlay is behind the login container */
+        }
+
+        .login-container {
+            position: relative;
+            background-color: #2a2a2a; /* Solid background for the login container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+            max-width: 400px; /* Limit the width of the login container */
+            width: 100%; /* Make it responsive */
+            z-index: 2; /* Ensure login container is above the overlay */
+        }
+
+        .login-logo h2 {
+            text-align: center;
+            color: white;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #c06169;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .or-divider {
+            text-align: center;
+            margin: 10px 0;
+            color: white;
+        }
+
+        .login-options a {
+            display: block;
+            text-align: center;
+            margin: 5px 0;
+            color: white;
+        }
+
+        .sign-up-link p {
+            text-align: center;
+            color: white;
+        }
+    </style>
 </head>
 <body>
+    <div class="overlay"></div> <!-- Overlay for transparency effect -->
     <div class="login-container">
         <div class="login-logo">
-            <h2 style="color: white;">Login to Vows and Values</h2>
+            <h2>Login to Vows and Values</h2>
         </div>
         <div class="login-form">
-            <form action="../handlers/login_handler.php " method="POST">
+            <form action="../handlers/login_handler.php" method="POST">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <input type="text" name="email" placeholder="email" required>
+                <input type="text" name="email" placeholder="Email" required>
                 <button type="submit" name="login">Log In</button>
             </form>
             <div class="or-divider">
@@ -23,7 +99,7 @@
             </div>
             <div class="login-options">
                 <a href="../guest/guest_page.php" class="guest-login">Continue as Guest</a>
-                <a href="adminlogin.php" class="admin-login">Login as Admin</a>
+                <a href="../admin/adminlogin.php" class="admin-login">Login as Admin</a>
             </div>
             <div class="sign-up-link">
                 <p>Don't have an account? <a href="register.php">Sign Up</a></p>

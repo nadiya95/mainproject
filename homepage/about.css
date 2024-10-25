@@ -1,187 +1,67 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #000;
-    color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-    line-height: 1.8;
+/* General container styling */
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-    width: 80%;
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 40px;
-    background-color: #1c1c1c;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+/* Header and title styling */
+h1, h2 {
+    text-align: center;
+    color: #c06169;
+}
+
+/* About Us section styling */
+.about-us {
+    margin-top: 20px;
+    color: #333;
+}
+
+.about-us h3, .about-us h4 {
+    color: #c06169;
+}
+
+.about-banner {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
     border-radius: 8px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 50px;
+.banner-content h2 {
+    margin-bottom: 10px;
 }
 
-.logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    color: #c06169;
-    font-size: 32px;
-    margin-top: 10px;
-}
-
-header h2 {
-    color: #f7f7f7;
-    font-size: 18px;
-    margin-top: 5px;
-    font-weight: 300;
-}
-
-.about-us h3 {
-    color: #c06169;
-    font-size: 26px;
-    margin-bottom: 20px;
-}
-
-.about-us h4 {
-    color: #c06169;
-    font-size: 22px;
-    margin-top: 30px;
-}
-
-.about-us p,
-.about-us ul {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #f7f7f7;
-    line-height: 1.6;
-}
-
-.about-us ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 30px;
-}
-
-.about-us li {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-}
-
-.emoji {
-    font-size: 24px;
-    margin-right: 10px;
-    flex-shrink: 0;
-}
-
-.closing {
-    font-style: italic;
-    color: #ccc;
-}
-
-.signature {
-    text-align: center;
-    font-weight: bold;
-    color: #c06169;
-    margin-top: 40px;
-}
-footer {
-    background-color: rgba(192, 97, 105, 0.8); /* Use RGBA for transparency */
-    color: white;
-    padding: 20px;
-    text-align: center;
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c06169;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
 .footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.footer-content h2 {
-    margin: 0 0 10px;
+    padding: 20px;
+    background-color: #c06169;
+    color: #fff;
+    text-align: center;
 }
 
 .contact-info {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center; /* Center the whole section */
-    gap: 30px; /* Add space between each section */
 }
 
-.email-info, .phone-info {
-    display: flex;
-    align-items: center;
-    margin: 0; /* Remove margin */
-}
-
-.mail-symbol, .phone-symbol {
-    margin-right: 5px; /* Space between symbol and text */
+.email-info, .social-info, .phone-info {
+    padding: 0 10px;
 }
 
 .vertical-line {
-    color: white; /* Color for vertical line */
-    font-weight: bold; /* Make the line slightly bolder */
-}
-
-.social-info {
-    margin: 0; /* Remove margin */
-}
-
-.insta-symbol {
-    color: white; /* Color for Instagram symbol */
-    font-size: 24px; /* Size of the Instagram icon */
-    text-decoration: none; /* Remove underline */
-}
-
-.insta-symbol i {
-    font-size: 24px; /* Adjust icon size */
-}
-
-.about-banner {
-    width: 100%; /* Ensure the banner takes the full width */
-    background-image: url('https://media.istockphoto.com/id/1190043570/photo/happy-wedding-photography-of-bride-and-groom-at-wedding-ceremony-wedding-tradition-sprinkled.jpg?s=612x612&w=0&k=20&c=_aCIW5-iOIiaDdqin_50kvBcbFbIxSULHHamPUILE0c='); /* Path to your background image */
-    background-size: cover; /* Ensures the image covers the entire banner */
-    background-position: center; /* Centers the image */
-    color: white;
-    padding: 40px 0; /* Vertical padding for the content */
-    margin: 0; /* Remove margin */
-    position: relative; /* For positioning child elements if needed */
-}
-
-.banner-content {
-    background-color: rgba(192, 97, 105, 0.7); /* Semi-transparent background for readability */
-    padding: 20px; /* Padding around the content */
-    border-radius: 10px; /* Rounded corners */
-    max-width: 800px; /* Optional: Limit the width of the content */
-    margin: 0 auto; /* Center the content horizontally */
-    text-align: center; /* Center align text */
-}
-
-.banner-content h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.banner-content p {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.btn {
-    background-color: #f4c2ac; /* Button color */
-    color: #c06169; /* Text color */
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #c06169; /* Change on hover */
-    color: white; /* Change text color on hover */
+    font-size: 20px;
+    color: #fff;
 }

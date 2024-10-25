@@ -53,7 +53,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     $action = $_POST['action'];
     
     if ($action == 'accept') {
-        $update_sql = "UPDATE interests SET status = 'accepted' WHERE id = '$interest_id'";
+        // Update the interest status to 'accepted' and set the 'matched_on' timestamp to the current time
+        $update_sql = "UPDATE interests 
+                       SET status = 'accepted', matched_on = NOW() 
+                       WHERE id = '$interest_id'";
         mysqli_query($conn, $update_sql);
 
         // Store message in a session variable

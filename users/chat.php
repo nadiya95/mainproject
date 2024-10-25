@@ -164,7 +164,7 @@ $sender = $_SESSION['username'];
     import { getDatabase, ref, set, push, onChildAdded, remove } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
     
     const firebaseConfig = {
-        apiKey: "AIzaSyAff9lxhZMW04bfl5V8UIlaLbX5RTJOmhI",
+        apiKey: "YOUR API",
         authDomain: "vows-12f52.firebaseapp.com",
         databaseURL: "https://vows-12f52-default-rtdb.asia-southeast1.firebasedatabase.app/",
         projectId: "vows-12f52",
